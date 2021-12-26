@@ -12,5 +12,5 @@ __env.env
 /rostelescum/node_modules
 # Для БД
 /db/pg_data
-node_modules
-/node_modules/
+node_modules/
+node_modules/*
