@@ -1,0 +1,90 @@
+# Версия docker-compose
+version: "3"
+
+# Список контейнеров(сервисов)
+services:
+
+  # Контейнер с базой данных
+  db:
+    # Имя контейнера
+    container_name: "${NAME_PROJ}-postgres-db_cont"
+
+    # Перезапускать контейнер если он упал
+    restart: always
+
+    # Взять готовый образ `postgres`
+    image: "postgres:alpine"
+
+    # Зеркальная папка с БД
+    # Если вы хотите использовать данные из реальной БД(которая вне контейнера)
+    # То установите путь `./data/db:/var/lib/postgresql/data`
+    volumes:
+      - "${POSTGRES_VOLUMES}:/var/lib/postgresql/data"
+
+    # Взять переменные окружения
+    env_file: ${PATH_ENV}
+
+  # Даем любое название для WEB контейнера
+  web:
+
+    # Имя контейнера
+    container_name: "${NAME_PROJ}-djnago-web_cont"
+
+    # Перезапускать контейнер если он упал
+    restart: always
+    
+    # Найти Dockerfile(по указанному пути) и собрать контейнер
+    build:
+      context: .
+      # Передать аргумент с путем к рабочей деректории
+      args:
+        WORK_DIR: ${WORK_DIR}
+        NAME_PROJ: ${NAME_PROJ}
+
+    # Путь к файлу с переменными окружениями  (Эти переменные будут доступны во всем контейнере)
+    env_file: ${PATH_ENV}
+
+    # Зеркальная папка с Проектом
+    volumes:
+      # - ".:${WORK_DIR}"
+      - "./deploy:${WORK_DIR}/deploy"
+
+    # Проброска портов для web приложения `<РеальныйПорт>:<ПортВ_Контейнере>`
+    ports:
+      - ${EXTERNAL_WEB_PORT}:${EXTERNAL_WEB_PORT}
+
+    # Зависит от контейнеров(сервисов)
+    depends_on:
+      - db
+
+  # Контейнер `Nginx`
+  ngix:
+    # Имя контейнера
+    container_name: "${NAME_PROJ}-nginx_cont"
+
+    # Перезапускать контейнер если он упал
+    restart: always
+
+    # Найти Dockerfile(по указанному пути) и собрать контейнер
+    build:
+      context: ./deploy/nginx
+      # Передать аргумент с путем к рабочей деректории
+      args:
+        WORK_DIR: ${WORK_DIR}/deploy/gunicorn
+
+    # Зеркальная папка с Проектом
+    volumes:
+      # - ".:${WORK_DIR}"
+      # Проксирование через `Unix Socket`
+      - "./deploy/gunicorn:${WORK_DIR}/deploy/gunicorn"
+
+    # Проброска портов
+    ports:
+      - ${NGINX_PORT}:${NGINX_PORT}
+
+    # Путь к файлу с переменными окружениями  (Эти переменные будут доступны во всем контейнере)
+    env_file: ${PATH_ENV}
+
+    # Зависит от `web` приложения
+    depends_on:
+      - web
