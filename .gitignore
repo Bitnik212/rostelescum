@@ -13,3 +13,4 @@ __env.env
 # Для БД
 /db/pg_data
 node_modules
+/node_modules/
