@@ -1,10 +1,11 @@
 import React from "react";
-import './App.css'
+import '../static/frontend_react/App.css';
+import { Tabs } from "./components";
 
 const App: React.FunctionComponent = () => {
 return (
         <div>
-            Hello React + Django + Py
+            <Tabs />
         </div>
     );
 }

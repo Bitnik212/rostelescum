@@ -27,7 +27,7 @@ module.exports = {
 
   resolve: {
     // Добавить разрешения '.ts' и '.tsx' к обрабатываемым
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
 
   module: {
@@ -40,6 +40,14 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         // для поиска подходящих файлов используйте  `babel-loader`
         use: 'ts-loader',
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
       },
     ],
   },
