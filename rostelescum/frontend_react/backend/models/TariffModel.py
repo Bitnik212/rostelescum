@@ -15,15 +15,14 @@ class TariffModel(models.Model):
         verbose_name = "Тарифы"
 
     def __str__(self):
-        members = inspect.getmembers(self)
-        columns: dict = dict(members)["__dict__"]
-        columns_copy = columns.copy()
-        for column in columns:
-            if str(column).startswith("_"):
-                columns_copy.pop(column)
-        return self.__class__.__name__ + "(" + ", ".join(
-            [column + "=" + str(columns_copy.get(column)) for column in columns_copy]) + ")"
+        return self.title
 
     title = models.TextField(verbose_name="Название тарифа")
     price = models.IntegerField(verbose_name="Стоимость тарифа")
     published = models.BooleanField(default=False)
+    type = models.ForeignKey(
+        "TariffTypeModel",
+        on_delete=models.CASCADE,
+        verbose_name="Тип тарифа",
+        null=True
+    )
