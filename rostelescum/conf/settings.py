@@ -49,6 +49,8 @@ INSTALLED_APPS = [
 		'django.contrib.sessions',
 		'django.contrib.messages',
 		'django.contrib.staticfiles',
+		'conf',
+		'graphene_django',
 		# React
 		'frontend_react.apps.FrontendReactConfig',
 ]
