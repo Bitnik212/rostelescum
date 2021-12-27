@@ -28,9 +28,11 @@ const Tabs: React.FunctionComponent = (): JSX.Element => {
     const [activeTab, setActiveTab] = useState(tabs[0].id);
 
     return (
-        <div className="rt-tabs rt-tabs--background rt-tabs--background-gray rt-tabs-tablet rt-tabs--tag-mode rt-tabs--orange">
-            <TabItems tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-            <TabContent activeTab={activeTab} />
+        <div className="container tabs">
+            <div className="rt-tabs rt-tabs--background rt-tabs--background-gray rt-tabs-tablet rt-tabs--tag-mode rt-tabs--orange">
+                <TabItems tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabContent activeTab={activeTab} />
+            </div>
         </div>
     );
 };

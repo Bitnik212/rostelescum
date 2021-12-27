@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import InputMask from 'react-input-mask';
+import InputCheckbox from "../InputCheckbox/InputCheckbox";
 
 interface IInputProps {
     name: string
@@ -7,6 +8,7 @@ interface IInputProps {
     title?: string
     placeholder?: string
     floating?: boolean
+    valueType?: "number" | "text"
 }
 
 const Input: React.FunctionComponent<IInputProps> = ({
@@ -15,17 +17,26 @@ const Input: React.FunctionComponent<IInputProps> = ({
     placeholder,
     title,
     children,
-    floating
+    floating,
+    valueType
 }) => {
     const [isError, setIsError] = useState(false);
     const [value, setValue] = useState("");
     const [isFloating, setIsFloating] = useState(floating || false)
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
-        if (e.target.value === "123") {
-            setIsError(true);
-        } else {
-            setIsError(false);
+        if (type === 'tel') {
+            setValue(e.target.value);
+            return;
+        }
+        const pattern = valueType === "number" ? /^\d{0,4}$/ : /^[a-zA-Zа-яА-Я,\- ]{0,50}$/;
+        const regexp = new RegExp(pattern);
+        if (regexp.test(e.target.value)) {
+            setValue(e.target.value);
+            if (e.target.value === "123") {
+                setIsError(true);
+            } else {
+                setIsError(false);
+            }
         }
     }
 
@@ -38,7 +49,7 @@ const Input: React.FunctionComponent<IInputProps> = ({
         }
     }
 
-    return (
+    return type !== "checkbox" ? (
         <div className="input-wrapper">
             <div
                 className={
@@ -46,7 +57,9 @@ const Input: React.FunctionComponent<IInputProps> = ({
                 }>
                 {type === 'tel' ? (
                     <InputMask
-                        autoComplete="off" autoCapitalize="off" type={type}
+                        autoComplete="off"
+                        autoCapitalize="off"
+                        type={type}
                         name={name}
                         className="input-element"
                         value={value}
@@ -58,9 +71,11 @@ const Input: React.FunctionComponent<IInputProps> = ({
                     />
                 ) : (
                     <input
-                        autoComplete="off" autoCapitalize="off" type={type}
-                        name={name}
+                        autoComplete="off"
+                        autoCapitalize="off"
                         className="input-element"
+                        type={type}
+                        name={name}
                         value={value}
                         placeholder={placeholder}
                         title={title}
@@ -79,6 +94,8 @@ const Input: React.FunctionComponent<IInputProps> = ({
                 </div>
             </div>
         </div>
+    ) : (
+        <InputCheckbox name={name} />
     );
 };
 

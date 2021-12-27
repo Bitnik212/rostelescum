@@ -1,11 +1,12 @@
 import React from "react";
-import '../static/frontend_react/App.css';
-import { Tabs } from "./components";
+import {Footer, Header, Tabs} from "./components";
 
 const App: React.FunctionComponent = () => {
 return (
-        <div>
+        <div className="app">
+            <Header />
             <Tabs />
+            <Footer />
         </div>
     );
 }

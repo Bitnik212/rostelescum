@@ -1,6 +1,6 @@
 .rt-tabs-content__item {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 25px;
 }
 
@@ -42,4 +42,102 @@
     padding: 25px;
     background-color: #fff;
     border-radius: 8px;
+}
+
+@font-face {
+    font-family: 'Rostelecom-Regular';
+    src: url('./fonts/RostelecomBasis-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Rostelecom-Medium';
+    src: url('./fonts/RostelecomBasis-Medium.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'Rostelecom-Bold';
+    src: url('./fonts/RostelecomBasis-Bold.woff2') format('woff2');
+}
+
+:root{
+    --color-primary: #101828;
+    --color-accent: #FF4F12;
+    --color-accentHover: #d33706;
+    --color-accentSecond: #7700ff;
+    --color-accentSecondHover: #5b09c0;
+    --color-secondaryHover: #fff6f3;
+    --color-backgroundTab: #f3f3f4;
+    --color-backgroundFooter: #272e3d;
+}
+
+.header {
+    background: white;
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    height: 88px;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.rtcLogo{
+    width: 28px;
+    margin-right: 16px;
+}
+
+.title{
+    font-family: 'Rostelecom-Bold', sans-serif;
+    font-size: 24px;
+    line-height: 24px;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.infoContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.locationTxt{
+    font-family: 'Rostelecom-Medium', sans-serif;
+    font-size: 16px;
+    color: var(--color-primary);
+    margin: 0 28px 0 4px;
+}
+
+.account{
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    padding: 0 160px;
+}
+
+.container.footer {
+    height: 160px;
+    background-color: var(--color-backgroundFooter);
+    font-size: 22px;
+    color: white;
+    font-family: 'Rostelecom-Medium', sans-serif;
+}
+
+.container.tabs {
+    height: 80vh;
+    align-items: flex-start;
 }
