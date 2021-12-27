@@ -5,8 +5,13 @@
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from conf import settings
-from api.api_v1 import api as api_v1
+from django.views.decorators.csrf import csrf_exempt
+from graphene_django.views import GraphQLView
+
+from . import settings
+from .api.graphql import schema
+from .api.rest.api_v1 import api as api_v1
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,6 +19,7 @@ urlpatterns = [
     path('api/v1/', api_v1.urls),
     # Маршрутизация `React`
     path('', include('frontend_react.urls')),
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
     # path('', include('<main_app>.urls')),
 ]
 
