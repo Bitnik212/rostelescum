@@ -17,20 +17,16 @@ const TabContent: React.FunctionComponent<ITabContent> = ({ activeTab }): JSX.El
                         {
                             title: 'Безлимитный интернет',
                             value: '200 Мбит/с',
-                            active: true,
                         },
                         {
                             title: 'Интерактивное ТВ Wink',
                             value: '141 канал посмотреть',
-                            active: true,
                         },
                         {
                             title: 'Онлайн-кинотеатр Wink',
-                            active: false,
                         },
                         {
                             title: 'Мобильная связь',
-                            active: false,
                         }
                     ],
                     price: 629,
@@ -42,20 +38,16 @@ const TabContent: React.FunctionComponent<ITabContent> = ({ activeTab }): JSX.El
                         {
                             title: 'Безлимитный интернет',
                             value: '200 Мбит/с',
-                            active: true,
                         },
                         {
                             title: 'Интерактивное ТВ Wink',
                             value: '141 канал посмотреть',
-                            active: true,
                         },
                         {
                             title: 'Онлайн-кинотеатр Wink',
-                            active: false,
                         },
                         {
                             title: 'Мобильная связь',
-                            active: false,
                         }
                     ],
                     price: 632,
@@ -67,21 +59,17 @@ const TabContent: React.FunctionComponent<ITabContent> = ({ activeTab }): JSX.El
                         {
                             title: 'Безлимитный интернет',
                             value: '300 Мбит/с',
-                            active: true,
                         },
                         {
                             title: 'Интерактивное ТВ Wink',
                             value: '182 канал посмотреть',
-                            active: true,
                         },
                         {
                             title: 'Онлайн-кинотеатр Wink',
                             value: '25 000 фильмов и сериалов',
-                            active: true,
                         },
                         {
                             title: 'Мобильная связь',
-                            active: false,
                         }
                     ],
                     price: 700,
@@ -97,22 +85,18 @@ const TabContent: React.FunctionComponent<ITabContent> = ({ activeTab }): JSX.El
                         {
                             title: 'Безлимитный интернет',
                             value: '200 Мбит/с',
-                            active: true,
                         },
                         {
                             title: 'Интерактивное ТВ Wink',
                             value: '182 канал посмотреть',
-                            active: true,
                         },
                         {
                             title: 'Онлайн-кинотеатр Wink',
                             value: '25 000 фильмов и сериалов',
-                            active: true,
                         },
                         {
                             title: 'Мобильная связь',
                             value: 'Безлимит/500 СМС/1200 мин',
-                            active: true,
                         }
                     ],
                     price: 750,
@@ -124,22 +108,18 @@ const TabContent: React.FunctionComponent<ITabContent> = ({ activeTab }): JSX.El
                         {
                             title: 'Безлимитный интернет',
                             value: '200 Мбит/с',
-                            active: true,
                         },
                         {
                             title: 'Интерактивное ТВ Wink',
                             value: '182 канал посмотреть',
-                            active: true,
                         },
                         {
                             title: 'Онлайн-кинотеатр Wink',
                             value: '25 000 фильмов и сериалов',
-                            active: true,
                         },
                         {
                             title: 'Мобильная связь',
                             value: 'Безлимит/500 СМС/1200 мин/до 5 сим-карт',
-                            active: true,
                         }
                     ],
                     price: 950,
@@ -151,21 +131,17 @@ const TabContent: React.FunctionComponent<ITabContent> = ({ activeTab }): JSX.El
                         {
                             title: 'Безлимитный интернет',
                             value: '800 Мбит/с',
-                            active: true,
                         },
                         {
                             title: 'Интерактивное ТВ Wink',
                             value: 'Онлайн-кинотеатр',
-                            active: true,
                         },
                         {
                             title: 'Онлайн-кинотеатр Wink',
-                            active: false,
                         },
                         {
                             title: 'Мобильная связь',
                             value: 'Безлимит/500 СМС/2000 мин',
-                            active: true,
                         }
                     ],
                     price: 950,

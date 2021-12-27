@@ -5,9 +5,10 @@ import {ICardProps} from "../../interfaces";
 
 interface IOffers {
     offers: ICardProps
+    showEmpty: boolean
 }
 
-const Offers: React.FunctionComponent<IOffers> = ({ offers }): JSX.Element => {
+const Offers: React.FunctionComponent<IOffers> = ({ offers, showEmpty }): JSX.Element => {
     return (
         <div>
             {offers.map((offer) => {
@@ -26,7 +27,7 @@ const Offers: React.FunctionComponent<IOffers> = ({ offers }): JSX.Element => {
                     }
                 })();
                 return (
-                    <Offer key={offer.title} icon={icon} value={offer.value} description={offer.title} />
+                    <Offer key={offer.title} icon={icon} value={offer.value} description={offer.title} showEmpty={showEmpty} />
                 )
             })}
         </div>

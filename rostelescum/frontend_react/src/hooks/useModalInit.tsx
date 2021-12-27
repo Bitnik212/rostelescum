@@ -11,6 +11,14 @@ const useModalInit = (): [boolean, Dispatch<SetStateAction<boolean>>] => {
         return () => window.removeEventListener('keydown', keyDownHandler);
     });
 
+    useEffect(() => {
+        if (isShow) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    })
+
     return [isShow, setIsShow];
 }
 

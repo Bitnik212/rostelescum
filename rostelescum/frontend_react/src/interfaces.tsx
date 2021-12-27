@@ -16,7 +16,6 @@ export interface ITabItems {
 export interface ICardProp {
     title: string
     value?: string
-    active: boolean
 }
 
 export type ICardProps = ICardProp[];

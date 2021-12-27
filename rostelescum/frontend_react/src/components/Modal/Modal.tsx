@@ -1,6 +1,7 @@
 import React from 'react';
 import {ModalOverlay} from "../index";
 import useModalInit from "../../hooks/useModalInit";
+import {Close} from "../../images";
 
 const Modal: React.FC = ({ children }): JSX.Element => {
     const [isShow, setIsShow] = useModalInit();
@@ -17,7 +18,12 @@ const Modal: React.FC = ({ children }): JSX.Element => {
             {isShow && (
                 <ModalOverlay setIsShow={setIsShow}>
                     <div className="modal__content" onClickCapture={() => setIsShow(true)}>
-                        { children }
+                        <div className="close">
+                            <Close onClick={() => setIsShow(false)} className="input-clear__icon" />
+                        </div>
+                        <div>
+                            { children }
+                        </div>
                     </div>
                 </ModalOverlay>
             )}

@@ -1,7 +1,8 @@
 .rt-tabs-content__item {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   column-gap: 25px;
+  row-gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .rt-tabs--tag-mode.rt-tabs--background .rt-tabs-v2-navigation-scoller {
@@ -35,13 +36,15 @@
 
 .modal__content {
     width: 100%;
-    max-width: 800px;
+    max-width: 980px;
     min-height: 60vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 25px;
     background-color: #fff;
     border-radius: 8px;
+    overflow: auto;
 }
 
 @font-face {
@@ -126,7 +129,7 @@
 .container{
     display: flex;
     align-items: center;
-    padding: 0 160px;
+    padding: 0 max(5vw, 20px);
 }
 
 .container.footer {
@@ -138,6 +141,27 @@
 }
 
 .container.tabs {
-    height: 80vh;
+    min-height: 80vh;
     align-items: flex-start;
+    padding-bottom: 25px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+}
+
+.rt-button {
+    white-space: nowrap;
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 770px) {
+    .location {
+        display: none;
+    }
 }

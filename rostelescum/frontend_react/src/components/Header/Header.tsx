@@ -11,8 +11,10 @@ const Header = (): JSX.Element => {
                 <span className="title">Ростелеком к вашим услугам</span>
             </a>
             <div className="infoContainer">
-                <LocationIcon />
-                <span className="locationTxt">Санкт-Петербург</span>
+                <div className="location">
+                    <LocationIcon />
+                    <span className="locationTxt">Санкт-Петербург</span>
+                </div>
                 <button className="rt-button rt-button-orange">Войти</button>
             </div>
         </div>
