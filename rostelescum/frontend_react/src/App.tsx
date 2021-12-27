@@ -1,10 +1,12 @@
 import React from "react";
-import './App.css'
+import {Footer, Header, Tabs} from "./components";
 
 const App: React.FunctionComponent = () => {
 return (
-        <div>
-            Hello React + Django + Py
+        <div className="app">
+            <Header />
+            <Tabs />
+            <Footer />
         </div>
     );
 }

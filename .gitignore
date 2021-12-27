@@ -14,3 +14,4 @@ __env.env
 /db/pg_data
 node_modules/
 node_modules/*
+/rostelescum/frontend_react/static/public

@@ -1,0 +1,9 @@
+export { ReactComponent as CityIcon } from './city.svg';
+export { ReactComponent as CheckIcon } from './city.svg';
+export { ReactComponent as LogoIcon } from './logo.svg';
+export { ReactComponent as LocationIcon } from './location.svg';
+export { ReactComponent as InternetIcon } from './internet.svg';
+export { ReactComponent as TvIcon } from './tv.svg';
+export { ReactComponent as WinkIcon } from './wink.svg';
+export { ReactComponent as MobileIcon } from './mobile.svg';
+export { ReactComponent as Close } from './close.svg';
