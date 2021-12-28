@@ -50,3 +50,7 @@ class OrderModel(models.Model):
     )
     status = models.CharField(max_length=13, choices=STATUS, default='in_processing')
     done = models.BooleanField(default=False, verbose_name="Выполнено", editable=False)
+    street = models.TextField(verbose_name="Улица", null=True)
+    home = models.CharField(verbose_name="Дом", max_length=200, null=True)
+    appart = models.IntegerField(verbose_name="Квартира", null=True)
+    city = models.CharField(verbose_name="Город", max_length=500, null=True, default="Санкт-Петербург")
