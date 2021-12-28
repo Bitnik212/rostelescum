@@ -24,10 +24,6 @@ COPY deploy/entrypoint.sh ${WORK_DIR}/deploy/entrypoint.sh
 COPY . .
 
 RUN \
-    # Обновить `pip`
-    pip install --upgrade pip;\
-    # Установить зависемости из файла
-    pip install -r ${NAME_PROJ}/requirements.txt; \
     # Разрешить исполнять файл
     chmod +x deploy/entrypoint.sh; \
     # Отчистить кеш `apt`
