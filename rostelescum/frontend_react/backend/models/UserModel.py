@@ -20,7 +20,7 @@ class UserModel(models.Model):
     first_name = models.CharField(max_length=25, verbose_name="Имя", blank=True)
     second_name = models.CharField(max_length=25, verbose_name="Фамилия", blank=True)
     last_name = models.CharField(max_length=25, verbose_name="Отчество", blank=True)
-    phone = models.CharField(max_length=11, verbose_name="Номер телефона")
+    phone = models.TextField(verbose_name="Номер телефона")
     password = models.CharField(max_length=25, verbose_name="Пароль", default="123456789")
     active_tariff = models.ForeignKey(
         "TariffModel",

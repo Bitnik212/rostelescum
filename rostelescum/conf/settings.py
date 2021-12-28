@@ -32,13 +32,17 @@ def read_env_file_and_set_from_venv(file_name: str):
 read_env_file_and_set_from_venv(os.path.join(ROOT_DIR, "__env.env"))
 
 DEBUG = True  # Если `True` будет отображать отладочную информацию
-ALLOWED_HOSTS = ['*']  # Список хостов который будет обслуживать Django
+ALLOWED_HOSTS = ['https://rt.nikolay.moe', 'https://rostelescum.nikolay.moe', 'localhost', '0.0.0.0']  # Список хостов который будет обслуживать Django
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")  # Секретный ключ для шифрования сессий
 
 WSGI_APPLICATION = 'conf.wsgi.application'
 
 ROOT_URLCONF = 'conf.urls'  # Главный `URL` обработчик
 #####
+
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://rt.nikolay.moe', 'https://rostelescum.nikolay.moe']
+
 
 
 # Все инсталлированные приложения на вашем сайте.
