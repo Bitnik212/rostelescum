@@ -17,7 +17,8 @@ class OrderMutation(graphene.Mutation):
 
     @classmethod
     def mutate(cls, root, info, phone, tariff_id, street, home, appart, city):
-        user = UserModel(phone=phone).save()
+        user = UserModel(phone=phone)
+        user.save()
         tariff = TariffModel.objects.filter(id=tariff_id).first()
         order = OrderModel(phone=user, tariff=tariff, street=street, home=home, appart=appart, city=city)
         order.save()
