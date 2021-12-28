@@ -11,7 +11,7 @@ const TabItems: React.FunctionComponent<ITabItems> = ({tabs, activeTab, setActiv
                         <Tab
                             key={tab.id}
                             id={tab.id}
-                            title={tab.title}
+                            name={tab.name}
                             isActive={tab.id === activeTab}
                             setActiveTab={setActiveTab}
                         />

@@ -27,7 +27,7 @@ const Offers: React.FunctionComponent<IOffers> = ({ offers, showEmpty }): JSX.El
                     }
                 })();
                 return (
-                    <Offer key={offer.title} icon={icon} value={offer.value} description={offer.title} showEmpty={showEmpty} />
+                    <Offer key={offer.title} icon={icon} value={offer.description} description={offer.title} showEmpty={showEmpty} />
                 )
             })}
         </div>
