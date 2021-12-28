@@ -5,6 +5,7 @@ from .TariffPropertyRelationModel import TariffPropertyRelationModel
 from .TariffPropsModel import TariffPropsModel
 from .TariffTypeModel import TariffTypeModel
 from .OrderModel import OrderModel
+from .UserModel import UserModel
 
 
 class Models(Enum):
@@ -13,3 +14,4 @@ class Models(Enum):
     tariff_type = TariffTypeModel
     tariff_property_relation = TariffPropertyRelationModel
     order = OrderModel
+    user = UserModel
