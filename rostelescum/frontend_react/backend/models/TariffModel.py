@@ -7,7 +7,7 @@ from django.db import models
 class TariffModel(models.Model):
 
     class Article(admin.ModelAdmin):
-        list_display = ['title', 'price', 'published']
+        list_display = ['id', 'title', 'price', 'published']
         ordering = ['title']
 
     class Meta:
