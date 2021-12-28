@@ -16,7 +16,7 @@ const Offers: React.FunctionComponent<IOffers> = ({ offers, showEmpty }): JSX.El
                     switch (offer.title) {
                         case "Безлимитный интернет":
                             return <InternetIcon className="rt-sys-icon" />;
-                        case "Интерактивное ТВ Wink":
+                        case "Интерактивное ТВ Wink": case "Wink в приложении":
                             return <TvIcon className="rt-sys-icon" />;
                         case "Онлайн-кинотеатр Wink":
                             return <WinkIcon className="rt-sys-icon" />;
@@ -27,7 +27,7 @@ const Offers: React.FunctionComponent<IOffers> = ({ offers, showEmpty }): JSX.El
                     }
                 })();
                 return (
-                    <Offer key={offer.title} icon={icon} value={offer.value} description={offer.title} showEmpty={showEmpty} />
+                    <Offer key={offer.title} icon={icon} value={offer.description} description={offer.title} showEmpty={showEmpty} />
                 )
             })}
         </div>

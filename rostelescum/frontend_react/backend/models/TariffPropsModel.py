@@ -12,8 +12,8 @@ class TariffPropsModel(models.Model):
         verbose_name = verbose_name_plural
 
     def __str__(self):
-        return self.title
+        return f"{self.title} ({self.description})"
 
     title = models.TextField()
     description = models.TextField()
-    icon_name = models.CharField(max_length=300)
+    icon_name = models.CharField(blank=True, max_length=300)

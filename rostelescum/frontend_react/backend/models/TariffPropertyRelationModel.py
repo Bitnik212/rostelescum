@@ -1,8 +1,6 @@
 from django.contrib import admin
 from django.db import models
 
-from frontend_react.backend.models import TariffModel, TariffPropsModel
-
 
 class TariffPropertyRelationModel(models.Model):
     class Article(admin.ModelAdmin):

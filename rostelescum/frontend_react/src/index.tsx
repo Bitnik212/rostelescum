@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Controllers from './store/controllers';
+import {ApolloProvider} from "@apollo/client";
 
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <ApolloProvider client={Controllers.client}>
+            <App />
+        </ApolloProvider>
     </React.StrictMode>,
     document.querySelector('#root')
 );

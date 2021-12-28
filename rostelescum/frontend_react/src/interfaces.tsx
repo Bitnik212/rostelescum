@@ -2,7 +2,7 @@ import React from "react";
 
 export interface ITab {
     id: string
-    title: string
+    name: string
 }
 
 export type ITabs = ITab[];
@@ -14,8 +14,8 @@ export interface ITabItems {
 }
 
 export interface ICardProp {
-    title: string
-    value?: string
+    title?: string
+    description: string
 }
 
 export type ICardProps = ICardProp[];

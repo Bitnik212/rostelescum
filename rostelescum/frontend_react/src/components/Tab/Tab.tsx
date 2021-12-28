@@ -6,7 +6,7 @@ interface ITabProps extends ITab {
     setActiveTab: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Tab: React.FunctionComponent<ITabProps> = ({ id, title, isActive, setActiveTab }): JSX.Element => {
+const Tab: React.FunctionComponent<ITabProps> = ({ id, name, isActive, setActiveTab }): JSX.Element => {
     return (
         <div className={["rt-tabs-nav-v2_item", isActive ? 'rt-tabs-nav-v2_item--active' : ''].join(' ')}>
             <button
@@ -15,7 +15,7 @@ const Tab: React.FunctionComponent<ITabProps> = ({ id, title, isActive, setActiv
                 className="rt-tabs-nav-v2_item-name d-flex flex-v-center"
                 onClick={() => setActiveTab(id)}
             >
-                {title}
+                {name}
             </button>
         </div>
     );
