@@ -13,3 +13,4 @@ class Query(ObjectType):
     def resolve_all_tariffs(self, info):
         repository = TariffRepository()
         return list(repository.all())
+
