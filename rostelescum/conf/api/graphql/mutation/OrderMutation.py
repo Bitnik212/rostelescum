@@ -6,7 +6,7 @@ from .OrderType import OrderType
 
 class OrderMutation(graphene.Mutation):
     class Arguments:
-        phone = graphene.Int()
+        phone = graphene.String()
         tariff_id = graphene.ID()
         street = graphene.String()
         home = graphene.String()
