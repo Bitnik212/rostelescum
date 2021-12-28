@@ -12,12 +12,12 @@ class TariffModel(models.Model):
 
     class Meta:
         verbose_name_plural = "Тарифы"
-        verbose_name = "Тарифы"
+        verbose_name = "тариф"
 
     def __str__(self):
         return self.title
 
-    title = models.TextField(verbose_name="Название тарифа")
+    title = models.CharField(max_length=60, verbose_name="Название тарифа")
     price = models.IntegerField(verbose_name="Стоимость тарифа")
     published = models.BooleanField(default=False)
     type = models.ForeignKey(
