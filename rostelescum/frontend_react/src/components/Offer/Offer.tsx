@@ -9,7 +9,7 @@ interface IOffer {
 
 const Offer: React.FunctionComponent<IOffer> = ({ icon, value, description, showEmpty }): JSX.Element | null => {
     return ((value === '-' && showEmpty) || value !== '-') ? (
-        <div className="rt-tariff__offer">
+        <div className="rt-tariff__offer" style={description === 'Мобильная связь' ? {height: '72px'} : {}}>
             <div className="enabled Main_Internet_service">
                 <div className={["js-dyn-hcell rt-tariff-option", value !== '-' ? '' : 'is--disabled'].join(' ')}>
                     <i className="rt-tariff-option__icon">{icon}</i>

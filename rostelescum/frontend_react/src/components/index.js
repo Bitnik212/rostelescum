@@ -13,3 +13,4 @@ export { default as Button } from './Button';
 export { default as CardModal } from './CardModal';
 export { default as Offer } from './Offer';
 export { default as Offers } from './Offers';
+export { default as CardModalForm } from './CardModalForm';

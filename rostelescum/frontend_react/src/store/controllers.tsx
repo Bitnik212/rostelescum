@@ -19,6 +19,52 @@ export const GET_ALL_TARIFFS = gql`
 }
 `;
 
+export interface CREATE_ORDER_PROPS {
+    city: string,
+    street: string,
+    home: string,
+    apartment: number,
+    phone: string,
+    name: string,
+    tariffId: number
+}
+
+export const CREATE_ORDER = gql`
+mutation CreateOrder(
+    $city: String!,
+    $street: String!,
+    $home: String!,
+    $apartment: Int!,
+    $phone: String!,
+    $name: String!,
+    $tariffId: ID!
+  ) {
+    createOrder(
+      city: $city,
+      street: $street,
+      home: $home,
+      appart: $apartment,
+      phone: $phone,
+      name: $name,
+      tariffId: $tariffId
+    ) {
+      order {
+        title,
+        status,
+        done,
+        street,
+        city,
+        id,
+        appart,
+        phone {
+          id,
+          phone
+        }
+      }
+    }
+}
+`;
+
 class Controllers {
     client: ApolloClient<any>
 

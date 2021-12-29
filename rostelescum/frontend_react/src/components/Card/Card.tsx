@@ -10,7 +10,7 @@ interface ICardProps {
 const Card: React.FunctionComponent<ICardProps> = ({data}): JSX.Element => {
     return (
         <div className="rt-tariff">
-            <div className="rt-tariff__title js-dyn-hcell rt-tariff__link">
+            <div className="rt-tariff__title js-dyn-hcell rt-tariff__link" style={{height: '64px'}}>
                 {data.title}
             </div>
             <div className="rt-tariff__offers sp-b-0-3">

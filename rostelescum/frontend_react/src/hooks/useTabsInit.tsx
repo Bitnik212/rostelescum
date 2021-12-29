@@ -11,7 +11,7 @@ export const useTabsInit = (): [string, Dispatch<SetStateAction<string>>, ITabs,
 
     useEffect(() => {
         const fetchedTabs: ITabs = [];
-        if (!loading) {
+        if (!loading && data.allTariffs.length) {
             data.allTariffs.forEach((tariff: any) => {
                 if (!fetchedTabs.find((tab) => tab.id === tariff.type.id))
                     fetchedTabs.push(tariff.type);

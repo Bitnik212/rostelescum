@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Dispatch, SetStateAction, useState} from 'react';
 import InputMask from 'react-input-mask';
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 
@@ -9,6 +9,9 @@ interface IInputProps {
     placeholder?: string
     floating?: boolean
     valueType?: "number" | "text"
+    value?: any
+    changeValue?: (value: any) => void
+    required?: boolean
 }
 
 const Input: React.FunctionComponent<IInputProps> = ({
@@ -18,34 +21,45 @@ const Input: React.FunctionComponent<IInputProps> = ({
     title,
     children,
     floating,
-    valueType
+    valueType,
+    value,
+    changeValue,
+    required
 }) => {
     const [isError, setIsError] = useState(false);
-    const [value, setValue] = useState("");
+    const [valueField, setValueField] = useState("");
     const [isFloating, setIsFloating] = useState(floating || false)
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (type === 'tel') {
-            setValue(e.target.value);
+            if (changeValue) {
+                changeValue(e.target.value)
+            } else {
+                setValueField(e.target.value);
+            }
             return;
         }
-        const pattern = valueType === "number" ? /^\d{0,4}$/ : /^[a-zA-Zа-яА-Я,\- ]{0,50}$/;
+        const pattern = valueType === "number" ? /^[\d]{0,4}$/ : /^[a-zA-Zа-яА-Я,\- ]{0,50}$/;
         const regexp = new RegExp(pattern);
         if (regexp.test(e.target.value)) {
-            setValue(e.target.value);
-            if (e.target.value === "123") {
-                setIsError(true);
+            if (changeValue) {
+                changeValue(e.target.value)
             } else {
-                setIsError(false);
+                setValueField(e.target.value);
             }
+            setIsError(false);
         }
     }
 
     const onBlurHandler = () => {
-        if (!value || (type === 'tel' && value.includes('_'))) {
+        if (type === 'tel' && ((value && value.includes('_')) || valueField.includes('_'))) {
+            setIsError(true);
+            setIsFloating(false);
+        } else if (!(value || valueField)) {
             setIsError(true);
             setIsFloating(false);
         } else {
             setIsFloating(true);
+            setIsError(false);
         }
     }
 
@@ -62,7 +76,7 @@ const Input: React.FunctionComponent<IInputProps> = ({
                         type={type}
                         name={name}
                         className="input-element"
-                        value={value}
+                        value={value || valueField}
                         placeholder={placeholder}
                         title={title}
                         onChange={changeHandler}
@@ -76,11 +90,12 @@ const Input: React.FunctionComponent<IInputProps> = ({
                         className="input-element"
                         type={type}
                         name={name}
-                        value={value}
+                        value={value || valueField}
                         placeholder={placeholder}
                         title={title}
                         onChange={changeHandler}
                         onBlur={onBlurHandler}
+                        required={required}
                     />
                 )}
 
@@ -95,7 +110,7 @@ const Input: React.FunctionComponent<IInputProps> = ({
             </div>
         </div>
     ) : (
-        <InputCheckbox name={name} />
+        <InputCheckbox name={name} required={required} />
     );
 };
 

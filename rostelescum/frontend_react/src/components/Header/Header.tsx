@@ -15,7 +15,7 @@ const Header = (): JSX.Element => {
                     <LocationIcon />
                     <span className="locationTxt">Санкт-Петербург</span>
                 </div>
-                <button className="rt-button rt-button-orange">Войти</button>
+                <a href="/admin" className="rt-button rt-button-orange">Войти</a>
             </div>
         </div>
     );

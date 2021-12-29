@@ -2,14 +2,15 @@ import React from 'react';
 
 interface IInputCheckbox {
     name: string
+    required?: boolean
 }
 
-const InputCheckbox: React.FunctionComponent<IInputCheckbox> = ({ name }): JSX.Element => {
+const InputCheckbox: React.FunctionComponent<IInputCheckbox> = ({ name, required }): JSX.Element => {
     return (
         <div>
             <label className="checkbox checkbox-orange active">
                 <div className="ripple"/>
-                <input name={name} type="checkbox" className="checkbox-element"/>
+                <input name={name} type="checkbox" className="checkbox-element" required={required} />
                 <div className="checkbox-container">
                     <svg width="12px" height="9px" viewBox="0 0 12 9"
                          version="1.1" xmlns="http://www.w3.org/2000/svg"

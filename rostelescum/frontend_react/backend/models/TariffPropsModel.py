@@ -14,6 +14,6 @@ class TariffPropsModel(models.Model):
     def __str__(self):
         return f"{self.title} ({self.description})"
 
-    title = models.TextField()
-    description = models.TextField()
+    title = models.CharField(max_length=60)
+    description = models.CharField(max_length=60)
     icon_name = models.CharField(blank=True, max_length=300)
